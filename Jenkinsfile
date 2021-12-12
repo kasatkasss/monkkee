@@ -6,11 +6,16 @@ pipeline {
         maven "M3"
     }
 
+    parameters {
+     gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
+    }
+
+
     stages {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/kasatkasss/monkkee'
+                git branch: "${params.BRANCH}", url:'https://github.com/kasatkasss/monkkee'
                 // To run Maven on a Windows agent, use
                 bat "mvn clean test"
             }
