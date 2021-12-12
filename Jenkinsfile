@@ -5,11 +5,14 @@ pipeline {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
     }
+    parameters{
+        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'feature/page-object', type: 'PT_BRANCH'
+    }
 
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/kasatkasss/monkkee.git'
+                git branch: "${params.BRANCH}", url:'https://github.com/kasatkasss/monkkee.git'
                 // sh "mvn -Dmaven.test.failure.ignore=true clean package"
 
                 bat "mvn clean test"
