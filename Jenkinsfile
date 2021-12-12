@@ -6,7 +6,7 @@ pipeline {
         maven "M3"
     }
     parameters{
-        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'feature/page-object', type: 'PT_BRANCH'
+        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'feature/page-object', name: 'BRANCH', type: 'PT_BRANCH'
     }
 
     stages {
