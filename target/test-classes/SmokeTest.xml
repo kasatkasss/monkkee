@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Smoke test suite" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="utils.AnnotationTransformer"/>
+    </listeners>
+
     <test name="Login test">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
