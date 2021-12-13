@@ -29,9 +29,7 @@ public class HomePage extends BasePage{
         return true;
     }
 
-    public void createEntry(){
-        Faker faker = new Faker();
-        String text = faker.book().author();
+    public void createEntry(String text){
         driver.findElement(CREATE_ENTRY).click();
         driver.findElement(TEXT_AREA).sendKeys(text);
         driver.findElement(BACK_TO_OVERVIEW).click();
