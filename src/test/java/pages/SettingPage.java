@@ -34,9 +34,10 @@ public class SettingPage extends BasePage{
     }
 
     public void revertToEnglish(){
-        driver.findElement(By.xpath("//*[@id=\"settings-menu\"]/ul/li[1]/a")).click();
+        //driver.findElement(By.xpath("//*[@id=\"settings-menu\"]/ul/li[1]/a")).click();
         driver.findElement(By.xpath("//*[@id=\"settings-content\"]/form/div[3]/div/select")).click();
         driver.findElement(By.xpath("//*[@id=\"settings-content\"]/form/div[3]/div/select/option[2]")).click();
         driver.findElement(By.xpath("//*[@id=\"settings-content\"]/form/div[4]/div/button/div")).click();
+        driver.findElement(By.id("back-to-overview")).click();
     }
 }

@@ -9,8 +9,8 @@ public class SettingsTest extends BaseTest{
     public void changeLanguageTest(){
         loginPage.open().login(USER, PASSWORD);
         settingPage.open().changeLanguage();
-        Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"settings-content\"]/h1")).getText(),
-                "Sélection de la langue");
-        settingPage.revertToEnglish();
+        String message = driver.findElement(By.xpath("//*[@id=\"settings-content\"]/h1")).getText();
+        Assert.assertEquals(message, "Sélection de la langue");
+        //settingPage.revertToEnglish();
     }
 }
